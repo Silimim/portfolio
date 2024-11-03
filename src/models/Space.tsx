@@ -1,8 +1,8 @@
-import {useGLTF, useScroll} from "@react-three/drei";
+import {useGLTF} from "@react-three/drei";
 
+// @ts-ignore
 import spaceScene from "../assets/3d/sky.glb";
-import {useFrame} from "@react-three/fiber";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useState} from "react";
 
 const Space = () => {
 

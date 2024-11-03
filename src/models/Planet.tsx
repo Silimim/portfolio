@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import React, {useEffect, useRef} from "react";
-import {useFrame, useThree} from "@react-three/fiber";
+import {useEffect, useRef} from "react";
+import {useFrame} from "@react-three/fiber";
 import {useGLTF} from '@react-three/drei'
 import {a} from '@react-spring/three'
 
@@ -12,9 +12,6 @@ import {Euler, Group, Object3DEventMap} from "three";
 // @ts-ignore
 const Planet = ({isRotating, setIsRotating, setAirplaneRotation, setCurrentStage, ...props}) => {
 
-    const {gl, viewport} = useThree();
-    const lastX = useRef(0);
-    const lastY = useRef(0);
     const rotationSpeed = useRef(0);
     const dampinf = 0.95;
 
@@ -61,14 +58,14 @@ const Planet = ({isRotating, setIsRotating, setAirplaneRotation, setCurrentStage
     });
 
     useEffect(() => {
-        const handleKeyDown = (e) => {
+        const handleKeyDown = (e: any) => {
             keysPressed.current.add(e.key);
             if (!isRotating) {
                 setIsRotating(true);
             }
         };
 
-        const handleKeyUp = (e) => {
+        const handleKeyUp = (e: any) => {
             keysPressed.current.delete(e.key);
             if (keysPressed.current.size === 0) {
                 setIsRotating(false);
@@ -91,22 +88,22 @@ const Planet = ({isRotating, setIsRotating, setAirplaneRotation, setCurrentStage
 
             if (keysPressed.current.has('ArrowRight') || keysPressed.current.has('d')) {
                 rotation.y -= ROTATION_SPEED;
-                setAirplaneRotation((prev) => new Euler(prev.x, 1.6, prev.z));
+                setAirplaneRotation((prev: Euler) => new Euler(prev.x, 1.6, prev.z));
             }
 
             if (keysPressed.current.has('ArrowLeft') || keysPressed.current.has('a')) {
                 rotation.y += ROTATION_SPEED;
-                setAirplaneRotation((prev) => new Euler(prev.x, 4.7, prev.z));
+                setAirplaneRotation((prev: Euler) => new Euler(prev.x, 4.7, prev.z));
             }
 
             if (keysPressed.current.has('ArrowUp') || keysPressed.current.has('w')) {
                 rotation.x += ROTATION_SPEED;
-                setAirplaneRotation((prev) => new Euler(prev.x, 3.1, prev.z));
+                setAirplaneRotation((prev: Euler) => new Euler(prev.x, 3.1, prev.z));
             }
 
             if (keysPressed.current.has('ArrowDown') || keysPressed.current.has('s')) {
                 rotation.x -= ROTATION_SPEED;
-                setAirplaneRotation((prev) => new Euler(prev.x, 0, prev.z));
+                setAirplaneRotation((prev: Euler) => new Euler(prev.x, 0, prev.z));
             }
 
             // Diagonal movement adjustments
@@ -114,25 +111,25 @@ const Planet = ({isRotating, setIsRotating, setAirplaneRotation, setCurrentStage
             if ((keysPressed.current.has('ArrowUp') || keysPressed.current.has('w')) && (keysPressed.current.has('ArrowRight') || keysPressed.current.has('d'))) {
                 rotation.x += diagSpeed;
                 rotation.y -= diagSpeed;
-                setAirplaneRotation((prev) => new Euler(prev.x, 2.12058, prev.z));
+                setAirplaneRotation((prev: Euler) => new Euler(prev.x, 2.12058, prev.z));
             }
 
             if ((keysPressed.current.has('ArrowUp') || keysPressed.current.has('w')) && (keysPressed.current.has('ArrowLeft') || keysPressed.current.has('a'))) {
                 rotation.x += diagSpeed;
                 rotation.y += diagSpeed;
-                setAirplaneRotation((prev) => new Euler(prev.x, -2.12058, prev.z));
+                setAirplaneRotation((prev: Euler) => new Euler(prev.x, -2.12058, prev.z));
             }
 
             if ((keysPressed.current.has('ArrowDown') || keysPressed.current.has('s')) && (keysPressed.current.has('ArrowRight') || keysPressed.current.has('d'))) {
                 rotation.x -= diagSpeed;
                 rotation.y -= diagSpeed;
-                setAirplaneRotation((prev) => new Euler(prev.x, 0.706858, prev.z));
+                setAirplaneRotation((prev: Euler) => new Euler(prev.x, 0.706858, prev.z));
             }
 
             if ((keysPressed.current.has('ArrowDown') || keysPressed.current.has('s')) && (keysPressed.current.has('ArrowLeft') || keysPressed.current.has('a'))) {
                 rotation.x -= diagSpeed;
                 rotation.y += diagSpeed;
-                setAirplaneRotation((prev) => new Euler(prev.x, -0.706858, prev.z));
+                setAirplaneRotation((prev: Euler) => new Euler(prev.x, -0.706858, prev.z));
             }
         }
     });

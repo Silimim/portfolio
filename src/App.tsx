@@ -19,6 +19,8 @@ function App() {
         </Routes>
       </Router>
     </main>
+
+  // Music by <a href="https://pixabay.com/users/sigmamusicart-36860929/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=256260">Mikhail Smusev</a> from <a href="https://pixabay.com/music//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=256260">Pixabay</a>
   )
 }
 
