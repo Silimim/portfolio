@@ -1,4 +1,4 @@
-import {Canvas, useFrame} from "@react-three/fiber";
+import {Canvas} from "@react-three/fiber";
 import React, {Suspense, useEffect, useRef, useState} from "react";
 import Loader from "../components/Loader.tsx";
 import Planet from "../models/Planet.tsx";
@@ -7,7 +7,17 @@ import Airplane from "../models/Airplane.tsx";
 import {Euler} from "three";
 import LandingInfo from "../components/LandingInfo.tsx";
 
+import lofi from "../assets/music/lofi.mp3";
+import {soundoff, soundon} from "../assets/icons";
+
 const Landing = () => {
+
+    const audio = useRef(new Audio(lofi));
+
+    audio.current.volume = 0.05;
+    audio.current.loop = true;
+
+    const [isPlayingMusic, setIsPlayingMusic] = useState(false);
 
     const [isRotating, setIsRotating] = useState(false);
 
@@ -52,6 +62,14 @@ const Landing = () => {
         return [rotation.x, rotation.y, rotation.z];
     }
 
+    useEffect(() => {
+        if (isPlayingMusic) {
+            audio.current.play();
+        } else {
+            audio.current.pause();
+        }
+    }, [isPlayingMusic]);
+
     return (
         <section className="w-full h-screen relative bg-black-500">
             <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
@@ -60,7 +78,7 @@ const Landing = () => {
             <Canvas className={`w-full h-screen bg-transparent`}
                     camera={{near: 0.2, far: 1000}}>
                 <Suspense fallback={<Loader/>}>
-                    <ambientLight />
+                    <ambientLight/>
                     <directionalLight position={[-4, 3, 1]} intensity={1}/>
                     <hemisphereLight groundColor={"#fb9f9f"} intensity={1}/>
 
@@ -82,6 +100,11 @@ const Landing = () => {
                     />
                 </Suspense>
             </Canvas>
+            <div className={"absolute bottom-2 left-2"}>
+                <img src={isPlayingMusic ? soundon : soundoff} alt={"music"}
+                     className={"w-10 h-10 cursor-pointer object-contain"}
+                     onClick={() => setIsPlayingMusic(!isPlayingMusic)}/>
+            </div>
         </section>
     )
 }
