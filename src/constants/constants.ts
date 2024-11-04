@@ -1,3 +1,4 @@
+
 import {
     contact,
     css,
@@ -21,7 +22,11 @@ import {
     cortis,
     paleoscovery,
     uniface,
-} from "../assets/icons";
+    crm,
+    dumb
+}
+// @ts-ignore
+from "../assets/icons";
 
 export const skills = [
     {
@@ -160,11 +165,13 @@ export const projects = [
         link: 'https://github.com/Silimim/Uniface-Helper',
     },
     {
+        iconUrl: dumb,
         theme: 'btn-back-orange',
         name: 'Dumbs',
         description: 'Developed and designed a multiplayer 2D platformer shooter game using Godot Engine.',
     },
     {
+        iconUrl: crm,
         theme: 'btn-back-green',
         name: 'Full stack CRM application',
         description: 'Developed a light CRM application for managing companies and contacts.',
