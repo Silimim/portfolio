@@ -42,7 +42,7 @@ const Landing = () => {
         let screenPosition: number[];
 
         if (window.innerWidth < 768) {
-            screenScale = [.015, .015, .015];
+            screenScale = [.11, .11, .11];
             screenPosition = [0, -1, -3];
         } else {
             screenScale = [.15, .15, .15];
