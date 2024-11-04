@@ -24,6 +24,7 @@ import unity from './unity.svg'
 import cortis from './cortis.svg'
 import uniface from './uniface.svg'
 import paleoscovery from './paleoscovery.svg'
+import home from './home.svg'
 
 export {
     css,
@@ -51,5 +52,6 @@ export {
     soundon,
     soundoff,
     paleoscovery,
-    uniface
+    uniface,
+    home
 }
