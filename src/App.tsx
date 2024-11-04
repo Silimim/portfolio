@@ -4,6 +4,7 @@ import Landing from "./pages/Landing.tsx";
 import About from "./pages/About.tsx";
 import Projects from "./pages/Projects.tsx";
 import Contacts from "./pages/Contacts.tsx";
+import Footer from "./components/Footer.tsx";
 
 function App() {
 
@@ -12,15 +13,23 @@ function App() {
       <Router>
         <Navbar/>
         <Routes>
-          <Route path='/' element={<Landing/>} />
-          <Route path='/about' element={<About/>} />
-          <Route path='/projects' element={<Projects/>} />
-          <Route path='/contacts' element={<Contacts/>} />
+          <Route path='/' element={<Landing />} />
+          <Route
+              path='/*'
+              element={
+                <>
+                  <Routes>
+                    <Route path='/about' element={<About />} />
+                    <Route path='/projects' element={<Projects />} />
+                    <Route path='/contacts' element={<Contacts />} />
+                  </Routes>
+                  <Footer />
+                </>
+              }
+          />
         </Routes>
       </Router>
     </main>
-
-  // Music by <a href="https://pixabay.com/users/sigmamusicart-36860929/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=256260">Mikhail Smusev</a> from <a href="https://pixabay.com/music//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=256260">Pixabay</a>
   )
 }
 
