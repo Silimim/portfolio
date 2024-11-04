@@ -25,7 +25,6 @@ import {
     crm,
     dumb
 }
-// @ts-ignore
 from "../assets/icons";
 
 export const skills = [
