@@ -25,6 +25,8 @@ import cortis from './cortis.svg'
 import uniface from './uniface.svg'
 import paleoscovery from './paleoscovery.svg'
 import home from './home.svg'
+import crm from './crm.svg'
+import dumb from './dumb.svg'
 
 export {
     css,
@@ -53,5 +55,7 @@ export {
     soundoff,
     paleoscovery,
     uniface,
-    home
+    home,
+    crm,
+    dumb
 }
