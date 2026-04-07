@@ -21,7 +21,7 @@ const Landing = () => {
 
     const [isRotating, setIsRotating] = useState(false);
 
-    const [airplaneRotation, setAirplaneRotation] = useState(new Euler(1.5, 2, 0));
+    const [airplaneRotation, setAirplaneRotation] = useState(new Euler(0, 0, 0));
 
     const adjustPlanetForScreenSize = () => {
         let screenScale;

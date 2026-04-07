@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import {useEffect, useRef} from "react";
 import {useFrame, useThree} from "@react-three/fiber";
 import {useGLTF} from '@react-three/drei'
@@ -17,10 +15,14 @@ const Planet = ({isRotating, setIsRotating, setAirplaneRotation, setCurrentStage
     const rotationSpeed = useRef(0);
     const dampinf = 0.95;
 
-    const keysPressed = useRef(new Set());
+    const keysPressed = useRef(new Set<string>());
 
-    const ROTATION_SPEED = 0.001 * Math.PI;
-    const MOBILE_ROTATION_SPEED = 0.005 * Math.PI;
+    // Velocity-based controls for smooth, momentum-driven movement
+    const velocity = useRef({ x: 0, y: 0 });
+    const ACCELERATION = 0.00045 * Math.PI;
+    const MAX_SPEED = 0.012 * Math.PI;
+    const FRICTION = 0.92;
+    const MOBILE_ROTATION_SPEED = 0.012 * Math.PI;
 
     const planetRef = useRef<Group<Object3DEventMap> | null>(null);
 
@@ -29,6 +31,21 @@ const Planet = ({isRotating, setIsRotating, setAirplaneRotation, setCurrentStage
     const touchStartX = useRef(0);
     const touchStartY = useRef(0);
     const isDragging = useRef(false);
+
+    // Reflects pitch back when crossing a pole and flips yaw by π so the
+    // planet never appears upside down. Left/right stay consistent everywhere.
+    const handlePoleCrossing = (rotation: any) => {
+        const HALF_PI = Math.PI / 2;
+        if (rotation.x > HALF_PI) {
+            rotation.x = Math.PI - rotation.x;
+            rotation.y += Math.PI;
+            velocity.current.x = -velocity.current.x;
+        } else if (rotation.x < -HALF_PI) {
+            rotation.x = -Math.PI - rotation.x;
+            rotation.y += Math.PI;
+            velocity.current.x = -velocity.current.x;
+        }
+    };
 
     useFrame(() => {
         if (!isRotating) {
@@ -88,25 +105,13 @@ const Planet = ({isRotating, setIsRotating, setAirplaneRotation, setCurrentStage
     }, [isRotating]);
 
     const handleRotation = (deltaX: number, deltaY: number) => {
+        if (!planetRef.current) return;
         const rotation = (planetRef.current as any).rotation;
 
-        if (Math.abs(deltaX) > Math.abs(deltaY)) {
-            if (deltaX > 0) {
-                rotation.y += MOBILE_ROTATION_SPEED;
-                setAirplaneRotation((prev: Euler) => new Euler(prev.x, 4.7, prev.z));
-            } else {
-                rotation.y -= MOBILE_ROTATION_SPEED;
-                setAirplaneRotation((prev: Euler) => new Euler(prev.x, 1.6, prev.z));
-            }
-        } else if (Math.abs(deltaY) > Math.abs(deltaX)) {
-            if (deltaY > 0) {
-                rotation.x += MOBILE_ROTATION_SPEED;
-                setAirplaneRotation((prev: Euler) => new Euler(prev.x, 3.1, prev.z));
-            } else {
-                rotation.x -= MOBILE_ROTATION_SPEED;
-                setAirplaneRotation((prev: Euler) => new Euler(prev.x, 0, prev.z));
-            }
-        }
+        rotation.y += deltaX * MOBILE_ROTATION_SPEED * 0.05;
+        rotation.x += deltaY * MOBILE_ROTATION_SPEED * 0.05;
+
+        handlePoleCrossing(rotation);
     };
 
     useEffect(() => {
@@ -153,61 +158,65 @@ const Planet = ({isRotating, setIsRotating, setAirplaneRotation, setCurrentStage
     }, [setAirplaneRotation]);
 
     useFrame(() => {
+        if (!planetRef.current) return;
+        const rotation = (planetRef.current as any).rotation;
 
-        if (planetRef.current) {
-            const rotation = (planetRef.current as any).rotation;
+        const right = keysPressed.current.has('ArrowRight') || keysPressed.current.has('d');
+        const left  = keysPressed.current.has('ArrowLeft')  || keysPressed.current.has('a');
+        const up    = keysPressed.current.has('ArrowUp')    || keysPressed.current.has('w');
+        const down  = keysPressed.current.has('ArrowDown')  || keysPressed.current.has('s');
 
-            const isUpsideDown = rotation.x > Math.PI / 2 || rotation.x < -Math.PI / 2;
+        // Accelerate on input
+        if (right) velocity.current.y -= ACCELERATION;
+        if (left)  velocity.current.y += ACCELERATION;
+        if (up)    velocity.current.x += ACCELERATION;
+        if (down)  velocity.current.x -= ACCELERATION;
 
-            console.log(isUpsideDown);
+        // Friction on idle axes
+        if (!right && !left) velocity.current.y *= FRICTION;
+        if (!up && !down)    velocity.current.x *= FRICTION;
 
-            if (keysPressed.current.has('ArrowRight') || keysPressed.current.has('d')) {
-                rotation.y -= ROTATION_SPEED * (isUpsideDown ? -1 : 1);
-                setAirplaneRotation((prev: Euler) => new Euler(prev.x, 1.6, prev.z));
-            }
+        // Clamp
+        velocity.current.x = Math.max(-MAX_SPEED, Math.min(MAX_SPEED, velocity.current.x));
+        velocity.current.y = Math.max(-MAX_SPEED, Math.min(MAX_SPEED, velocity.current.y));
 
-            if (keysPressed.current.has('ArrowLeft') || keysPressed.current.has('a')) {
-                rotation.y += ROTATION_SPEED * (isUpsideDown ? -1 : 1);
-                setAirplaneRotation((prev: Euler) => new Euler(prev.x, 4.7, prev.z));
-            }
+        // Apply rotation
+        rotation.y += velocity.current.y;
+        rotation.x += velocity.current.x;
 
-            if (keysPressed.current.has('ArrowUp') || keysPressed.current.has('w')) {
-                rotation.x += ROTATION_SPEED;
-                setAirplaneRotation((prev: Euler) => new Euler(prev.x, 3.1, prev.z));
-            }
+        // Reflect at the poles so the planet never appears upside down
+        handlePoleCrossing(rotation);
 
-            if (keysPressed.current.has('ArrowDown') || keysPressed.current.has('s')) {
-                rotation.x -= ROTATION_SPEED;
-                setAirplaneRotation((prev: Euler) => new Euler(prev.x, 0, prev.z));
-            }
+        const vx = velocity.current.x;
+        const vy = velocity.current.y;
 
-            // Diagonal movement adjustments
-            const diagSpeed = ROTATION_SPEED / Math.sqrt(2);
-            if ((keysPressed.current.has('ArrowUp') || keysPressed.current.has('w')) && (keysPressed.current.has('ArrowRight') || keysPressed.current.has('d'))) {
-                rotation.x += diagSpeed;
-                rotation.y -= diagSpeed * (isUpsideDown ? -1 : 1);
-                setAirplaneRotation((prev: Euler) => new Euler(prev.x, 2.12058, prev.z));
-            }
+        // Base idle pose — matches the initial Euler in Landing.tsx
+        const BASE_PITCH = 1.5;
+        const BASE_YAW   = 1.5;
+        const BASE_ROLL  = 0;
 
-            if ((keysPressed.current.has('ArrowUp') || keysPressed.current.has('w')) && (keysPressed.current.has('ArrowLeft') || keysPressed.current.has('a'))) {
-                rotation.x += diagSpeed;
-                rotation.y += diagSpeed * (isUpsideDown ? -1 : 1);
-                setAirplaneRotation((prev: Euler) => new Euler(prev.x, -2.12058, prev.z));
-            }
+        const moving = Math.abs(vx) > 0.0001 || Math.abs(vy) > 0.0001;
 
-            if ((keysPressed.current.has('ArrowDown') || keysPressed.current.has('s')) && (keysPressed.current.has('ArrowRight') || keysPressed.current.has('d'))) {
-                rotation.x -= diagSpeed;
-                rotation.y -= diagSpeed * (isUpsideDown ? -1 : 1);
-                setAirplaneRotation((prev: Euler) => new Euler(prev.x, 0.706858, prev.z));
-            }
+        // Offsets from the idle pose
+        const yawOffset = moving ? Math.atan2(vy, vx) + Math.PI / 2 : 0;
+        const rollOffset = (vy / MAX_SPEED) * 0.3;
+        const pitchOffset = -(vx / MAX_SPEED) * 0.4;
 
-            if ((keysPressed.current.has('ArrowDown') || keysPressed.current.has('s')) && (keysPressed.current.has('ArrowLeft') || keysPressed.current.has('a'))) {
-                rotation.x -= diagSpeed;
-                rotation.y += diagSpeed * (isUpsideDown ? -1 : 1);
-                setAirplaneRotation((prev: Euler) => new Euler(prev.x, -0.706858, prev.z));
-            }
-        }
+        const targetPitch = BASE_PITCH + pitchOffset;
+        const targetYaw   = BASE_YAW   + yawOffset;
+        const targetRoll  = BASE_ROLL  + rollOffset;
+
+        setAirplaneRotation((prev: Euler) => {
+            const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
+            const t = 0.12;
+            return new Euler(
+                lerp(prev.x, targetPitch, t),
+                lerp(prev.y, targetYaw,   t),
+                lerp(prev.z, targetRoll,  t),
+            );
+        });
     });
+
 
     return (
         <a.group {...props} ref={planetRef}>
