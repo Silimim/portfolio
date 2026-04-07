@@ -10,7 +10,7 @@ function App() {
 
   return (
     <main className='bg-slate-300/20 h-full'>
-      <Router>
+      <Router basename="/portfolio/">
         <Navbar/>
         <Routes>
           <Route path='/' element={<Landing />} />
