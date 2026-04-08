@@ -57,7 +57,6 @@ const About = () => {
                                             </div>
                                         </div>
 
-                                        {/* Tooltip */}
                                         <div className={"pointer-events-none absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:-translate-y-1 z-20"}>
                                             <div className={"relative bg-slate-900 text-white text-xs font-medium px-3 py-2 rounded-lg shadow-lg whitespace-nowrap"}>
                                                 <div className={"font-semibold"}>{skill.name}</div>

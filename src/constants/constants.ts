@@ -104,11 +104,26 @@ export const experiences = [
         company_name: "Cortis Lentini",
         icon: cortis,
         iconBg: "#ceffba",
-        date: "Mar 2022 - Present",
+        date: "Mar 2022 - 2025",
         points: [
             "Developing and maintaining web applications using Angular and other related technologies.",
             "Collaborating with cross-functional teams to create high-quality products.",
             "Implementing responsive design and ensuring cross-browser compatibility."
+        ],
+    },
+    {
+        title: "Full stack DevOps",
+        company_name: "Cortis Lentini",
+        icon: cortis,
+        iconBg: "#ceffba",
+        date: "2025 - Present",
+        points: [
+            "Managing and maintaining Linux servers, including provisioning, configuration, security hardening, and performance monitoring.",
+            "Containerizing applications using Docker and orchestrating multi-container environments with Docker Compose for consistent development and production deployments.",
+            "Designing and implementing CI/CD pipelines to automate build, test, and deployment workflows.",
+            "Developing and maintaining full stack web applications while bridging development and operations responsibilities.",
+            "Monitoring system health, troubleshooting production issues, and optimizing infrastructure for reliability and scalability.",
+            "Collaborating with development teams to ensure smooth integration between application code and infrastructure.",
         ],
     },
 ];
