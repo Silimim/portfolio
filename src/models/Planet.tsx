@@ -22,7 +22,6 @@ const Planet = ({isRotating, setIsRotating, setAirplaneRotation, setCurrentStage
     const ACCELERATION = 0.00045 * Math.PI;
     const MAX_SPEED = 0.012 * Math.PI;
     const FRICTION = 0.92;
-    const MOBILE_ROTATION_SPEED = 0.012 * Math.PI;
 
     const planetRef = useRef<Group<Object3DEventMap> | null>(null);
 
@@ -32,8 +31,6 @@ const Planet = ({isRotating, setIsRotating, setAirplaneRotation, setCurrentStage
     const touchStartY = useRef(0);
     const isDragging = useRef(false);
 
-    // Reflects pitch back when crossing a pole and flips yaw by π so the
-    // planet never appears upside down. Left/right stay consistent everywhere.
     const handlePoleCrossing = (rotation: any) => {
         const HALF_PI = Math.PI / 2;
         if (rotation.x > HALF_PI) {
@@ -106,12 +103,15 @@ const Planet = ({isRotating, setIsRotating, setAirplaneRotation, setCurrentStage
 
     const handleRotation = (deltaX: number, deltaY: number) => {
         if (!planetRef.current) return;
-        const rotation = (planetRef.current as any).rotation;
 
-        rotation.y += deltaX * MOBILE_ROTATION_SPEED * 0.05;
-        rotation.x += deltaY * MOBILE_ROTATION_SPEED * 0.05;
+        const TOUCH_SENSITIVITY = 0.00015 * Math.PI;
 
-        handlePoleCrossing(rotation);
+        velocity.current.y += deltaX * TOUCH_SENSITIVITY;
+        velocity.current.x += deltaY * TOUCH_SENSITIVITY;
+
+        // Clamp so a fast swipe doesn't exceed max speed
+        velocity.current.x = Math.max(-MAX_SPEED, Math.min(MAX_SPEED, velocity.current.x));
+        velocity.current.y = Math.max(-MAX_SPEED, Math.min(MAX_SPEED, velocity.current.y));
     };
 
     useEffect(() => {
