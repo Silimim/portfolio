@@ -22,11 +22,13 @@ import java from './java.svg'
 import angular from './angular.svg'
 import unity from './unity.svg'
 import cortis from './cortis.svg'
-import uniface from './uniface.svg'
 import paleoscovery from './paleoscovery.svg'
 import home from './home.svg'
 import crm from './crm.svg'
 import dumb from './dumb.svg'
+import myfit from './myfit.svg'
+import flutter from './flutter.svg'
+import mysql from './mysql.svg'
 
 export {
     css,
@@ -54,8 +56,10 @@ export {
     soundon,
     soundoff,
     paleoscovery,
-    uniface,
     home,
     crm,
-    dumb
+    dumb,
+    myfit,
+    flutter,
+    mysql,
 }

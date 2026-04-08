@@ -1,17 +1,12 @@
 
 import {
     contact,
-    css,
-    express,
     git,
     github,
-    html,
-    javascript,
     linkedin,
     mongodb,
     nodejs,
     react,
-    sass,
     godot,
     go,
     angular,
@@ -21,9 +16,11 @@ import {
     typescript,
     cortis,
     paleoscovery,
-    uniface,
+    myfit,
     crm,
-    dumb
+    dumb,
+    flutter,
+    mysql,
 }
 from "../assets/icons";
 
@@ -44,14 +41,14 @@ export const skills = [
         type: "Backend",
     },
     {
-        imageUrl: express,
-        name: "Express",
-        type: "Backend",
-    },
-    {
         imageUrl: mongodb,
         name: "MongoDB",
         type: "Database",
+    },
+    {
+        imageUrl: mysql,
+      name: "MySQL",
+      type:  "Database"
     },
     {
         imageUrl: java,
@@ -64,28 +61,13 @@ export const skills = [
         type: "Backend",
     },
     {
-        imageUrl: html,
-        name: "HTML",
-        type: "Frontend",
-    },
-    {
-        imageUrl: css,
-        name: "CSS",
-        type: "Frontend",
-    },
-    {
-        imageUrl: sass,
-        name: "Sass",
-        type: "Frontend",
-    },
-    {
         imageUrl: tailwindcss,
         name: "Tailwind CSS",
         type: "Frontend",
     },
     {
-        imageUrl: javascript,
-        name: "JavaScript",
+        imageUrl: typescript,
+        name: "TypeScript",
         type: "Frontend",
     },
     {
@@ -99,11 +81,6 @@ export const skills = [
         type: "Frontend",
     },
     {
-        imageUrl: typescript,
-        name: "TypeScript",
-        type: "Frontend",
-    },
-    {
         imageUrl: godot,
         name: "Godot",
         type: "Game Development",
@@ -114,6 +91,11 @@ export const skills = [
         name: "Unity",
         type: "Game Development",
     },
+    {
+        imageUrl: flutter,
+        name: "Flutter",
+        type: "Frontend",
+    }
 ];
 
 export const experiences = [
@@ -157,11 +139,10 @@ export const projects = [
         description: 'Developed and designed a unity platformer puzzle 2D game'
     },
     {
-        iconUrl: uniface,
-        theme: 'btn-back-blue',
-        name: 'Uniface helper extension for vscode',
-        description: 'Developed a Visual Studio Code extension that helps developers to create Uniface components faster.',
-        link: 'https://github.com/Silimim/Uniface-Helper',
+        iconUrl: myfit,
+        theme: 'btn-back-green',
+        name: 'MyFit',
+        description: 'Developed a fitness application to track workouts and progress, built with Flutter',
     },
     {
         iconUrl: dumb,
@@ -171,7 +152,7 @@ export const projects = [
     },
     {
         iconUrl: crm,
-        theme: 'btn-back-green',
+        theme: 'btn-back-blue',
         name: 'Full stack CRM application',
         description: 'Developed a light CRM application for managing companies and contacts.',
         link: 'https://github.com/Silimim/hrapid-frontend',

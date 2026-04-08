@@ -22,12 +22,51 @@ const About = () => {
             <div className={"py-10 flex flex-col"}>
                 <h3 className={"subhead-text"}>My Skills</h3>
 
-                <div className={"mt-16 flex flex-wrap gap-12"}>
-                    {skills.map((skill, index) => (
-                        <div className={"block-container w-20 h-20"} key={index}>
-                            <div className={"btn-back rounded-xl"}/>
-                            <div className={"btn-front rounded-xl flex justify-center items-center"}>
-                                <img className={"w-1/2 h-1/2 object-contain"} src={skill.imageUrl} alt={skill.name}/>
+                <div className={"mt-12 flex flex-col gap-12"}>
+                    {Object.entries(
+                        skills.reduce((acc, skill) => {
+                            (acc[skill.type] = acc[skill.type] || []).push(skill);
+                            return acc;
+                        }, {} as Record<string, typeof skills>)
+                    ).map(([category, items]) => (
+                        <div key={category} className={"flex flex-col gap-5"}>
+                            <div className={"flex items-center gap-4"}>
+                                <h4 className={"text-lg font-poppins font-semibold text-slate-700 whitespace-nowrap"}>
+                                    {category}
+                                </h4>
+                                <div className={"h-px flex-1 bg-gradient-to-r from-red-300/60 to-transparent"}/>
+                                <span className={"text-xs text-slate-400 font-medium"}>
+                        {items.length} {items.length === 1 ? "skill" : "skills"}
+                    </span>
+                            </div>
+
+                            <div className={"flex flex-wrap gap-6"}>
+                                {items.map((skill, index) => (
+                                    <div
+                                        key={index}
+                                        className={"group relative"}
+                                    >
+                                        <div className={"block-container w-20 h-20 cursor-pointer transition-transform duration-300 group-hover:-translate-y-1"}>
+                                            <div className={"btn-back rounded-xl"}/>
+                                            <div className={"btn-front rounded-xl flex justify-center items-center"}>
+                                                <img
+                                                    className={"w-1/2 h-1/2 object-contain transition-transform duration-300 group-hover:scale-110"}
+                                                    src={skill.imageUrl}
+                                                    alt={skill.name}
+                                                />
+                                            </div>
+                                        </div>
+
+                                        {/* Tooltip */}
+                                        <div className={"pointer-events-none absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:-translate-y-1 z-20"}>
+                                            <div className={"relative bg-slate-900 text-white text-xs font-medium px-3 py-2 rounded-lg shadow-lg whitespace-nowrap"}>
+                                                <div className={"font-semibold"}>{skill.name}</div>
+                                                <div className={"text-slate-300 text-[10px]"}>{skill.type}</div>
+                                                <div className={"absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-900"}/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     ))}
