@@ -6,6 +6,7 @@ import Projects from "./pages/Projects.tsx";
 import Contacts from "./pages/Contacts.tsx";
 import MyFit from "./pages/MyFit.tsx";
 import MyFitPrivacy from "./pages/MyFitPrivacy.tsx";
+import MyFitTerms from "./pages/MyFitTerms.tsx";
 import Footer from "./components/Footer.tsx";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
                     <Route path='/projects' element={<Projects />} />
                     <Route path='/projects/myfit' element={<MyFit />} />
                     <Route path='/projects/myfit/privacy' element={<MyFitPrivacy />} />
+                    <Route path='/projects/myfit/terms' element={<MyFitTerms />} />
                     <Route path='/contacts' element={<Contacts />} />
                   </Routes>
                   <Footer />

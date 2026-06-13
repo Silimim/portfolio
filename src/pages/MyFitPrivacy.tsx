@@ -303,6 +303,9 @@ const MyFitPrivacy = () => {
                         <Link to={"/projects/myfit"} className={"myfit-btn-ghost"}>
                             ← Back to MyFit
                         </Link>
+                        <Link to={"/projects/myfit/terms"} className={"myfit-btn-ghost"}>
+                            Terms of Use
+                        </Link>
                         <a
                             href={"/portfolio/app-ads.txt"}
                             target={"_blank"}

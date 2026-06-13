@@ -212,6 +212,9 @@ const MyFit = () => {
                             <Link to={"/projects/myfit/privacy"} className={"myfit-btn-primary"}>
                                 Privacy Policy
                             </Link>
+                            <Link to={"/projects/myfit/terms"} className={"myfit-btn-ghost"}>
+                                Terms of Use
+                            </Link>
                         </div>
                     </div>
                 </div>
