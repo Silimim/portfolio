@@ -13,7 +13,7 @@ const MyFitPrivacy = () => {
                         Privacy <span className={"myfit-gradient-text"}>Policy</span>
                     </h1>
                     <p className={"myfit-tagline mt-2"}>MyFit Android Application</p>
-                    <p className={"text-white/60 text-sm mt-2"}>Last updated: June 13, 2026</p>
+                    <p className={"text-white/60 text-sm mt-2"}>Effective date: June 9, 2026</p>
                 </div>
             </div>
 
@@ -21,175 +21,290 @@ const MyFitPrivacy = () => {
                 <div className={"max-w-4xl mx-auto sm:px-16 px-8 py-16"}>
                     <div className={"myfit-card prose-myfit"}>
                         <p>
-                            This Privacy Policy describes how the MyFit mobile application
-                            ("MyFit", "the app", "we", "us", or "our") handles information when
-                            you use it. MyFit is developed and operated by Simone Baptiste as an
-                            independent developer. By installing or using MyFit you agree to the
-                            practices described below.
+                            This privacy policy applies to the MyFit app for mobile devices,
+                            together with any related services operated by Simone Baptiste
+                            (collectively, the "Application"). Simone Baptiste is hereby referred
+                            to as the "Service Provider".
                         </p>
 
-                        <h2>1. Summary</h2>
+                        <h2>Information Collection and Use</h2>
                         <p>
-                            MyFit is designed to work <strong>offline</strong>. All workout
-                            history, training cards, body measurements, recipes, and personal
-                            settings are stored locally on your device in an on-device SQLite
-                            database and in standard application preferences. We do not operate
-                            our own server, we do not host an account system, and we do not
-                            collect or sell your personal data.
-                        </p>
-
-                        <h2>2. Information collected by MyFit itself</h2>
-                        <p>
-                            The information you enter in MyFit — body weight, calories,
-                            measurements, photos you optionally attach, training cards, workout
-                            logs, recipes, notification preferences — is stored
-                            <strong> only on your device</strong>. It is not transmitted to us and
-                            is not accessible to us.
-                        </p>
-                        <p>
-                            If you use the optional <strong>backup / export</strong> feature, an
-                            archive of your local data is written to a location you choose
-                            (device storage or a sharing target you select). You are in full
-                            control of where that archive goes.
-                        </p>
-
-                        <h2>3. Permissions used</h2>
-                        <ul>
-                            <li>
-                                <strong>Storage / Photos</strong> — to let you attach a profile
-                                picture or progress photos, which are kept locally on your device.
-                            </li>
-                            <li>
-                                <strong>Notifications</strong> — to deliver local reminders (rest
-                                timers, workout reminders) scheduled by you. No content is sent
-                                over a network.
-                            </li>
-                            <li>
-                                <strong>Vibration</strong> — to provide haptic feedback during
-                                workouts and rest timers.
-                            </li>
-                            <li>
-                                <strong>Picture-in-Picture</strong> — to keep the workout timer
-                                visible while you use other apps.
-                            </li>
-                            <li>
-                                <strong>Internet</strong> — required by third-party SDKs listed
-                                in section 4 (advertising, purchases, ad-personalization
-                                consent).
-                            </li>
-                        </ul>
-
-                        <h2>4. Third-party services</h2>
-                        <p>
-                            MyFit integrates the following third-party SDKs. Each provider acts as
-                            an independent data controller for the data they process, and is
-                            governed by its own privacy policy.
+                            The Application collects information when you download and use it.
+                            This information may include information such as:
                         </p>
                         <ul>
+                            <li>Your device's Internet Protocol address</li>
                             <li>
-                                <strong>Google AdMob / Google Mobile Ads SDK</strong> — used to
-                                display banner and native ads to non-premium users. AdMob may
-                                collect device identifiers (such as the Android Advertising ID),
-                                coarse location derived from IP, ad interaction data and crash
-                                diagnostics in order to serve and measure ads. See{" "}
-                                <a
-                                    href={"https://policies.google.com/privacy"}
-                                    target={"_blank"}
-                                    rel={"noopener noreferrer"}
-                                >
-                                    Google's Privacy Policy
-                                </a>
-                                .
+                                The pages of the Application that you visit, the time and date of
+                                your visit, the time spent on those pages
                             </li>
-                            <li>
-                                <strong>Google User Messaging Platform (UMP) / Consent</strong> —
-                                used in regions where applicable law requires a consent prompt
-                                (e.g. EEA, UK, Switzerland) for personalized advertising. Your
-                                consent choice is stored on-device and forwarded to ad partners
-                                via the IAB Transparency &amp; Consent Framework.
-                            </li>
-                            <li>
-                                <strong>RevenueCat (purchases_flutter)</strong> — used to manage
-                                in-app subscriptions for MyFit Premium. RevenueCat receives an
-                                anonymous app-user ID and purchase events to validate
-                                entitlements. See{" "}
-                                <a
-                                    href={"https://www.revenuecat.com/privacy"}
-                                    target={"_blank"}
-                                    rel={"noopener noreferrer"}
-                                >
-                                    RevenueCat's Privacy Policy
-                                </a>
-                                .
-                            </li>
-                            <li>
-                                <strong>Google Play Billing</strong> — processes any premium
-                                subscription purchase. Payment information is handled entirely by
-                                Google Play; MyFit never sees your payment details.
-                            </li>
+                            <li>The time spent on the Application</li>
+                            <li>Your mobile operating system you use</li>
                         </ul>
 
-                        <h2>5. Children's privacy</h2>
+                        <h2>Cookies and tracking technologies</h2>
                         <p>
-                            MyFit is not directed to children under 13 (or the applicable age in
-                            your country). We do not knowingly collect personal information from
-                            children. If you believe a child has provided personal data through
-                            the app, please contact us so the situation can be addressed.
+                            The Application or its third-party SDKs may use cookies, SDKs, pixels,
+                            and similar technologies to support functionality, analytics, or
+                            service delivery. Where required by applicable law, the Service
+                            Provider will obtain consent before using non-essential tracking
+                            technologies.
                         </p>
 
-                        <h2>6. Your choices &amp; rights</h2>
-                        <ul>
-                            <li>
-                                <strong>Delete your data</strong> — uninstalling MyFit removes all
-                                local data. You can also clear data from Android settings, or use
-                                in-app reset options where provided.
-                            </li>
-                            <li>
-                                <strong>Reset advertising ID</strong> — you can reset or limit the
-                                Android Advertising ID from your device's Google settings.
-                            </li>
-                            <li>
-                                <strong>Withdraw ad-personalization consent</strong> — re-open
-                                the consent prompt from the in-app settings to update your
-                                choice.
-                            </li>
-                            <li>
-                                <strong>Cancel subscription</strong> — manage or cancel MyFit
-                                Premium any time from Google Play &gt; Subscriptions.
-                            </li>
-                        </ul>
-
-                        <h2>7. Data security</h2>
+                        <h2>Your Rights</h2>
                         <p>
-                            Local data is protected by the standard Android application sandbox
-                            and by your device's security. Sensitive credentials (where
-                            applicable) are stored using Flutter Secure Storage, which relies on
-                            the Android Keystore. No security measure can be guaranteed perfect,
-                            so please keep your device and OS up to date.
-                        </p>
-
-                        <h2>8. Changes to this policy</h2>
-                        <p>
-                            We may update this Privacy Policy from time to time to reflect
-                            changes to the app, the SDKs it uses, or applicable law. The "Last
-                            updated" date at the top of this page reflects the latest revision.
-                            Continued use of the app after changes constitutes acceptance.
-                        </p>
-
-                        <h2>9. Contact</h2>
-                        <p>
-                            For any question about this Privacy Policy or about how MyFit handles
-                            data, contact the developer at:{" "}
+                            You may request access to, correction of, or deletion of your personal
+                            data held by the Service Provider. To exercise these rights, or to
+                            withdraw consent where processing is based on consent, contact the
+                            Service Provider at{" "}
                             <a href={"mailto:baptistesimone19@gmail.com"}>
                                 baptistesimone19@gmail.com
                             </a>
                             .
+                        </p>
+
+                        <h2>Your California privacy rights (CCPA/CPRA)</h2>
+                        <p>
+                            If you are a California resident, you have the right to know what
+                            personal information is collected, the right to delete personal
+                            information, the right to opt out of the sale or sharing of personal
+                            information, and the right to non-discrimination for exercising these
+                            rights. To exercise your CCPA/CPRA rights, contact the Service
+                            Provider at{" "}
+                            <a href={"mailto:baptistesimone19@gmail.com"}>
+                                baptistesimone19@gmail.com
+                            </a>
+                            .
+                        </p>
+                        <p>
+                            The Service Provider may use the information you provide to send
+                            important information, required notices, and, where permitted by law,
+                            marketing communications.
+                        </p>
+                        <p>
+                            For a better experience while using the Application, the Service
+                            Provider may require you to provide certain personally identifiable
+                            information, including but not limited to age, gender, weight. The
+                            information the Service Provider requests will be retained and used as
+                            described in this privacy policy.
+                        </p>
+
+                        <h2>Third Party Access</h2>
+                        <p>
+                            Only aggregated, anonymized data is periodically transmitted to
+                            external services to aid the Service Provider in improving the
+                            Application and their service. The Service Provider may share your
+                            information with third parties in the ways that are described in this
+                            privacy statement.
+                        </p>
+
+                        <h2>International Data Transfers</h2>
+                        <p>
+                            The Service Provider or its third-party service providers may transfer
+                            personal data to countries outside your country of residence,
+                            including outside the European Economic Area (EEA). Where applicable
+                            law requires safeguards for international transfers, the Service
+                            Provider will use appropriate mechanisms.
+                        </p>
+                        <ul>
+                            <li>
+                                Standard Contractual Clauses (SCCs) approved by the European
+                                Commission
+                            </li>
+                            <li>
+                                Adequacy decisions or other legally recognized transfer mechanisms
+                            </li>
+                            <li>Your consent, where required and legally permitted</li>
+                        </ul>
+                        <p>
+                            Data protection laws in other countries may differ from those in your
+                            jurisdiction. Where required by law, the Service Provider will apply
+                            appropriate safeguards and obtain any consent required for the
+                            transfer.
+                        </p>
+                        <p>
+                            Please note that the Application utilizes third-party services that
+                            have their own Privacy Policy about handling data. Below are the links
+                            to the Privacy Policy of the third-party service providers used by the
+                            Application:
+                        </p>
+                        <ul>
+                            <li>
+                                <a
+                                    href={"https://support.google.com/admob/answer/6128543"}
+                                    target={"_blank"}
+                                    rel={"noopener noreferrer"}
+                                >
+                                    AdMob
+                                </a>
+                            </li>
+                        </ul>
+                        <p>
+                            The Service Provider may disclose User Provided and Automatically
+                            Collected Information:
+                        </p>
+                        <ul>
+                            <li>
+                                as required by law, such as to comply with a subpoena, or similar
+                                legal process;
+                            </li>
+                            <li>
+                                when they believe in good faith that disclosure is necessary to
+                                protect their rights, protect your safety or the safety of others,
+                                investigate fraud, or respond to a government request;
+                            </li>
+                            <li>
+                                with their trusted services providers who work on their behalf, do
+                                not have an independent use of the information the Service
+                                Provider discloses to them, and have agreed to adhere to the rules
+                                set forth in this privacy statement.
+                            </li>
+                        </ul>
+
+                        <h2>Opt-Out Rights</h2>
+                        <p>
+                            You can stop further collection of information from your mobile device
+                            by uninstalling the Application. Uninstalling will stop the
+                            Application from collecting data from your device, but it does not
+                            automatically delete information that has already been transmitted to
+                            the Service Provider or to third parties.
+                        </p>
+                        <p>
+                            To request deletion of your personal data, to withdraw consent, or to
+                            exercise any of your rights, contact the Service Provider at{" "}
+                            <a href={"mailto:baptistesimone19@gmail.com"}>
+                                baptistesimone19@gmail.com
+                            </a>
+                            .
+                        </p>
+
+                        <h2>Data Retention Policy</h2>
+                        <p>
+                            The Service Provider retains personal data based on its necessity for
+                            the stated purposes:
+                        </p>
+                        <ul>
+                            <li>
+                                <strong>User Provided Data:</strong> Retained for the duration of
+                                your use of the Application plus 12 months thereafter, unless
+                                longer retention is required by law
+                            </li>
+                            <li>
+                                <strong>Automatically Collected Data:</strong> Retained for up to
+                                24 months from collection, unless longer retention is required for
+                                legal compliance
+                            </li>
+                            <li>
+                                <strong>Aggregated and Anonymized Data:</strong> Retained
+                                indefinitely as it no longer identifies you
+                            </li>
+                            <li>
+                                <strong>Data required for legal compliance:</strong> Retained as
+                                long as required by applicable law
+                            </li>
+                        </ul>
+                        <p>
+                            You may request deletion of your personal data, subject to any legal
+                            obligation to retain it. If you want the Service Provider to delete
+                            User Provided Data submitted through the Application, please contact
+                            them at{" "}
+                            <a href={"mailto:baptistesimone19@gmail.com"}>
+                                baptistesimone19@gmail.com
+                            </a>
+                            . Please note that some User Provided Data may be required for the
+                            Application to function properly.
+                        </p>
+
+                        <h2>Children</h2>
+                        <p>
+                            The Application is not intended for children under 16 years of age,
+                            or such higher age as required by applicable law. The Service Provider
+                            does not knowingly solicit data from children or market the
+                            Application to them.
+                        </p>
+                        <p>
+                            Where parental or guardian consent is required under applicable law,
+                            the Application is not intended for use without that consent. The
+                            Service Provider does not knowingly collect personally identifiable
+                            information from children under 16 years of age in violation of
+                            applicable law. In the event the Service Provider discovers that a
+                            child has provided personal information, the Service Provider will
+                            immediately delete this from their servers. If you are a parent or
+                            guardian and you are aware that your child has provided the Service
+                            Provider with personal information, please contact the Service
+                            Provider (
+                            <a href={"mailto:baptistesimone19@gmail.com"}>
+                                baptistesimone19@gmail.com
+                            </a>
+                            ) so that they will be able to take the necessary actions.
+                        </p>
+
+                        <h2>Security</h2>
+                        <p>
+                            The Service Provider is concerned about safeguarding the
+                            confidentiality of your information. The Service Provider provides
+                            physical, electronic, and procedural safeguards to protect information
+                            the Service Provider processes and maintains.
+                        </p>
+
+                        <h2>Data Breach Notification</h2>
+                        <p>
+                            If a data breach occurs that affects your personal data, the Service
+                            Provider will notify you in accordance with applicable legal
+                            requirements, including, where required, providing information about
+                            the nature of the breach and the steps being taken to address it.
+                        </p>
+
+                        <h2>Changes</h2>
+                        <p>
+                            The Service Provider may update this Privacy Policy from time to
+                            time. The Service Provider will notify you of material changes by
+                            posting the updated Privacy Policy with an effective date. Where
+                            required by law, the Service Provider will seek your consent to
+                            material changes before they take effect.
+                        </p>
+                        <p>
+                            Previous versions of this Privacy Policy will be maintained and made
+                            available upon request by contacting the Service Provider at{" "}
+                            <a href={"mailto:baptistesimone19@gmail.com"}>
+                                baptistesimone19@gmail.com
+                            </a>
+                            .
+                        </p>
+                        <p>This privacy policy is effective as of 2026-06-09.</p>
+
+                        <h2>Your Consent</h2>
+                        <p>
+                            Where processing is based on consent, you provide that consent by
+                            affirmatively opting in to the relevant feature or action. You may
+                            withdraw consent at any time without affecting processing carried out
+                            before withdrawal. Processing based on other lawful bases is carried
+                            out as described above.
+                        </p>
+
+                        <h2>Contact Us</h2>
+                        <p>
+                            If you have any questions regarding privacy while using the
+                            Application, or have questions about the practices, please contact the
+                            Service Provider via email at{" "}
+                            <a href={"mailto:baptistesimone19@gmail.com"}>
+                                baptistesimone19@gmail.com
+                            </a>
+                            .
+                        </p>
+
+                        <p className={"text-white/50 text-sm"}>
+                            This privacy policy page was generated by App Privacy Policy
+                            Generator.
                         </p>
                     </div>
 
                     <div className={"flex flex-wrap gap-3 mt-8"}>
                         <Link to={"/projects/myfit"} className={"myfit-btn-ghost"}>
                             ← Back to MyFit
+                        </Link>
+                        <Link to={"/projects/myfit/terms"} className={"myfit-btn-ghost"}>
+                            Terms of Use
                         </Link>
                         <a
                             href={"/portfolio/app-ads.txt"}
