@@ -179,3 +179,215 @@ body:has(.card[data-color="red"]:hover) {
   box-shadow: 0.6vmin 0.6vmin #fff, 1vmin 1vmin #ffd2d2, 1vmin 1vmin #ffd2d2,
   0.65vmin 1vmin #ffd2d2, 1vmin 0.65vmin #ffd2d2;
 }
+
+/* ─────────────── MyFit themed page ─────────────── */
+.myfit-page {
+  background: #121212;
+  color: #fff;
+  min-height: 100vh;
+  font-family: "Work Sans", sans-serif;
+}
+
+.myfit-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at top left, rgba(94, 255, 165, 0.18), transparent 55%),
+    radial-gradient(ellipse at top right, rgba(216, 255, 75, 0.14), transparent 55%),
+    linear-gradient(180deg, #0e0e0e 0%, #121212 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.myfit-hero-glow {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  top: -300px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(94, 255, 165, 0.18) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(40px);
+}
+
+.myfit-body {
+  background: #121212;
+}
+
+.myfit-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+.myfit-back:hover { color: #5EFFA5; }
+
+.myfit-eyebrow {
+  color: #5EFFA5;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.myfit-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1;
+  color: #fff;
+  margin-top: 8px;
+}
+
+.myfit-gradient-text {
+  background: linear-gradient(135deg, #5EFFA5 0%, #D8FF4B 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.myfit-tagline {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.myfit-subtagline {
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 12px;
+  max-width: 640px;
+  line-height: 1.6;
+}
+
+.myfit-logo-card {
+  width: 120px;
+  height: 120px;
+  border-radius: 28px;
+  background: #1E1E1E;
+  border: 1px solid rgba(94, 255, 165, 0.25);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+    0 20px 60px -10px rgba(94, 255, 165, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.myfit-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #5EFFA5 0%, #D8FF4B 100%);
+  color: #0a0a0a;
+  font-weight: 700;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 10px 30px -5px rgba(94, 255, 165, 0.4);
+}
+.myfit-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px -5px rgba(94, 255, 165, 0.55);
+}
+
+.myfit-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.myfit-btn-ghost:hover {
+  background: rgba(94, 255, 165, 0.08);
+  border-color: rgba(94, 255, 165, 0.35);
+}
+
+.myfit-card {
+  background: #1E1E1E;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 18px;
+  padding: 28px;
+}
+
+.myfit-card-accent {
+  background:
+    linear-gradient(180deg, rgba(94, 255, 165, 0.05) 0%, rgba(216, 255, 75, 0.03) 100%),
+    #1E1E1E;
+  border-color: rgba(94, 255, 165, 0.2);
+}
+
+.myfit-feature-card {
+  background: #1E1E1E;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 24px;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.myfit-feature-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(94, 255, 165, 0.35);
+  background: linear-gradient(180deg, rgba(94, 255, 165, 0.04), rgba(216, 255, 75, 0.02)) #1E1E1E;
+}
+
+.myfit-h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: #fff;
+}
+
+.myfit-p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.65;
+}
+
+.myfit-chip {
+  background: rgba(94, 255, 165, 0.08);
+  border: 1px solid rgba(94, 255, 165, 0.25);
+  color: #5EFFA5;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Privacy policy article styles */
+.prose-myfit h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: #fff;
+  margin-top: 28px;
+  margin-bottom: 10px;
+}
+.prose-myfit p,
+.prose-myfit li {
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+}
+.prose-myfit ul {
+  list-style: disc;
+  padding-left: 22px;
+  margin: 10px 0;
+}
+.prose-myfit li { margin: 6px 0; }
+.prose-myfit a {
+  color: #5EFFA5;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-myfit a:hover { color: #D8FF4B; }
+.prose-myfit strong { color: #fff; }
+
