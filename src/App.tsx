@@ -13,7 +13,7 @@ function App() {
 
   return (
     <main className='bg-slate-300/20 h-full'>
-      <Router basename="/portfolio/">
+      <Router basename="/">
         <Navbar/>
         <Routes>
           <Route path='/' element={<Landing />} />
