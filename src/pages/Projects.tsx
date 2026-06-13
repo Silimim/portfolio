@@ -25,7 +25,7 @@ const Projects = () => {
 
             <div className={"flex flex-wrap my-20 gap-16"}>
                 {projects.map((project) => {
-                    const isInternal = (project as { internal?: boolean }).internal === true;
+                    const isInternal = (project as { internal?: boolean }).internal;
                     const cardInner = (
                         <>
                             <div className={"block-container w-12 h-12"}>

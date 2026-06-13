@@ -307,7 +307,7 @@ const MyFitPrivacy = () => {
                             Terms of Use
                         </Link>
                         <a
-                            href={"/portfolio/app-ads.txt"}
+                            href={"/app-ads.txt"}
                             target={"_blank"}
                             rel={"noopener noreferrer"}
                             className={"myfit-btn-ghost"}
