@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-// @ts-ignore
-import { myfit, flutter, arrow } from "../assets/icons";
+import { myfit, flutter } from "../assets/icons";
 
 const features = [
     {
@@ -213,15 +212,6 @@ const MyFit = () => {
                             <Link to={"/projects/myfit/privacy"} className={"myfit-btn-primary"}>
                                 Privacy Policy
                             </Link>
-                            <a
-                                href={"/portfolio/app-ads.txt"}
-                                target={"_blank"}
-                                rel={"noopener noreferrer"}
-                                className={"myfit-btn-ghost"}
-                            >
-                                app-ads.txt
-                                <img src={arrow} alt={""} className={"w-3 h-3 ml-1 inline invert"}/>
-                            </a>
                         </div>
                     </div>
                 </div>
