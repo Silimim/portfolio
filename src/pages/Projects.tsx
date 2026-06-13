@@ -24,39 +24,62 @@ const Projects = () => {
             </div>
 
             <div className={"flex flex-wrap my-20 gap-16"}>
-                {projects.map((project) => (
-                    <div className={"lg:w-[400px] w-full"} key={project.name}>
-                        <div className={"block-container w-12 h-12"}>
-                            <div className={`btn-back rounded-xl ${project.theme}`}/>
-                            <div className={"btn-front rounded-xl flex justify-center items-center"}>
+                {projects.map((project) => {
+                    const isInternal = (project as { internal?: boolean }).internal === true;
+                    const cardInner = (
+                        <>
+                            <div className={"block-container w-12 h-12"}>
+                                <div className={`btn-back rounded-xl ${project.theme}`}/>
+                                <div className={"btn-front rounded-xl flex justify-center items-center"}>
+                                    {
+                                        project.iconUrl &&
+                                        <img className={"w-1/2 h-1/2 object-contain"} src={project.iconUrl}
+                                             alt={project.name}/>
+                                    }
+                                </div>
+                            </div>
+
+                            <div className={"mt-5 flex flex-col"}>
+                                <h4 className={"text-2xl font-poppins font-semibold"}>
+                                    {project.name}
+                                </h4>
+                                <p className={"mt-2 text-slate-500"}>
+                                    {project.description}
+                                </p>
                                 {
-                                    project.iconUrl &&
-                                    <img className={"w-1/2 h-1/2 object-contain"} src={project.iconUrl}
-                                         alt={project.name}/>
+                                    project.link && <div className={"mt-5 flex items-center gap-3 font-poppins"}>
+                                        {isInternal ? (
+                                            <Link to={project.link}
+                                                  className={"font-semibold text-red-600"}>
+                                                View Project
+                                            </Link>
+                                        ) : (
+                                            <Link to={project.link} target={"_blank"} rel={"noopener noreferrer"}
+                                                  className={"font-semibold text-red-600"}>
+                                                View Project
+                                            </Link>
+                                        )}
+                                        <img src={arrow} alt={"arrow"} className={"w-4 h-4 object-contain"}/>
+                                    </div>
                                 }
                             </div>
-                        </div>
+                        </>
+                    );
 
-                        <div className={"mt-5 flex flex-col"}>
-                            <h4 className={"text-2xl font-poppins font-semibold"}>
-                                {project.name}
-                            </h4>
-                            <p className={"mt-2 text-slate-500"}>
-                                {project.description}
-                            </p>
-                            {
-                                project.link && <div className={"mt-5 flex items-center gap-3 font-poppins"}>
-                                    <Link to={project.link} target={"_blank"} rel={"noopener noreferrer"}
-                                          className={"font-semibold text-red-600"}>
-                                        View Project
-                                    </Link>
-                                    <img src={arrow} alt={"arrow"} className={"w-4 h-4 object-contain"}/>
-                                </div>
-                            }
-
+                    if (isInternal && project.link) {
+                        return (
+                            <Link to={project.link} key={project.name}
+                                  className={"lg:w-[400px] w-full cursor-pointer hover:opacity-90 transition-opacity"}>
+                                {cardInner}
+                            </Link>
+                        );
+                    }
+                    return (
+                        <div className={"lg:w-[400px] w-full"} key={project.name}>
+                            {cardInner}
                         </div>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
 
             <hr className={"border-slate-200"}/>

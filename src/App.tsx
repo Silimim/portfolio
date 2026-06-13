@@ -4,6 +4,8 @@ import Landing from "./pages/Landing.tsx";
 import About from "./pages/About.tsx";
 import Projects from "./pages/Projects.tsx";
 import Contacts from "./pages/Contacts.tsx";
+import MyFit from "./pages/MyFit.tsx";
+import MyFitPrivacy from "./pages/MyFitPrivacy.tsx";
 import Footer from "./components/Footer.tsx";
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
                   <Routes>
                     <Route path='/about' element={<About />} />
                     <Route path='/projects' element={<Projects />} />
+                    <Route path='/projects/myfit' element={<MyFit />} />
+                    <Route path='/projects/myfit/privacy' element={<MyFitPrivacy />} />
                     <Route path='/contacts' element={<Contacts />} />
                   </Routes>
                   <Footer />

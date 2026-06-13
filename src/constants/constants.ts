@@ -158,6 +158,8 @@ export const projects = [
         theme: 'btn-back-green',
         name: 'MyFit',
         description: 'Developed a fitness application to track workouts and progress, built with Flutter',
+        link: '/projects/myfit',
+        internal: true,
     },
     {
         iconUrl: dumb,

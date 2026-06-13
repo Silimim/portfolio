@@ -10,13 +10,13 @@ const Navbar = () => {
                 <img src={home} alt={"home"} className="w-[60%] h-[60%] object-contain"/>
             </NavLink>
             <nav className="flex text-lg gap-5 lg:gap-7 font-medium">
-                <NavLink to="/about" className={({isActive}) => isActive ? 'text-red-500' : window.location.pathname === '/' ? 'text-white' : 'text-black'}>
+                <NavLink to="/about" className={({isActive}) => isActive ? 'text-red-500' : (window.location.pathname === '/' || window.location.pathname.includes('/projects/myfit')) ? 'text-white' : 'text-black'}>
                     About
                 </NavLink>
-                <NavLink to="/projects" className={({isActive}) => isActive ? 'text-red-500' : window.location.pathname === '/' ? 'text-white' : 'text-black'}>
+                <NavLink to="/projects" className={({isActive}) => isActive ? 'text-red-500' : (window.location.pathname === '/' || window.location.pathname.includes('/projects/myfit')) ? 'text-white' : 'text-black'}>
                     Projects
                 </NavLink>
-                <NavLink to="/contacts" className={({isActive}) => isActive ? 'text-red-500' : window.location.pathname === '/' ? 'text-white' : 'text-black'}>
+                <NavLink to="/contacts" className={({isActive}) => isActive ? 'text-red-500' : (window.location.pathname === '/' || window.location.pathname.includes('/projects/myfit')) ? 'text-white' : 'text-black'}>
                     Contacts
                 </NavLink>
             </nav>
