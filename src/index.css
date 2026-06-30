@@ -124,7 +124,14 @@ body {
   transition: transform 0.6s cubic-bezier(0.4, 0.1, 0.2, 1);
   transform-style: preserve-3d;
 }
-.flip-card.is-flipped .flip-inner { transform: rotateY(180deg); }
+.flip-inner.is-flipped { transform: rotateY(180deg); }
+
+/* konami code celebration: a quick playful spin + hue shift */
+@keyframes konami-spin {
+  0% { transform: rotate(0deg); filter: hue-rotate(0deg); }
+  100% { transform: rotate(360deg); filter: hue-rotate(360deg); }
+}
+body.konami-mode { animation: konami-spin 1.2s ease-in-out; }
 .flip-face {
   position: absolute;
   inset: 0;

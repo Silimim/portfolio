@@ -17,26 +17,45 @@ export type AchievementId =
     | "flipper"
     | "explorer"
     | "recruiter"
-    | "completionist";
+    | "completionist"
+    // hidden / secret achievements
+    | "konami"
+    | "gambler"
+    | "gamertag"
+    | "nightowl"
+    | "idle"
+    | "meeplewhisperer";
 
 type Achievement = {
     id: AchievementId;
     title: string;
     description: string;
     icon: string;
+    hidden?: boolean;
 };
 
 export const ACHIEVEMENTS: Achievement[] = [
+    // ── the "main quest" (counts toward Completionist) ──
     { id: "arrival", title: "Welcome to the Table", description: "You joined the game.", icon: "🪑" },
     { id: "roller", title: "High Roller", description: "Rolled the dice of fate.", icon: "🎲" },
     { id: "flipper", title: "Card Counter", description: "Flipped a project card.", icon: "🃏" },
     { id: "explorer", title: "Explorer", description: "Scrolled through every section.", icon: "🗺️" },
     { id: "recruiter", title: "Player Two", description: "Opened the invitation to play.", icon: "🤝" },
-    { id: "completionist", title: "Completionist", description: "Unlocked every achievement!", icon: "🏆" },
+    { id: "completionist", title: "Completionist", description: "Unlocked the whole main quest!", icon: "🏆" },
+    // ── secret side quests (the fun, hidden ones) ──
+    { id: "konami", title: "Cheat Codes Engaged", description: "↑ ↑ ↓ ↓ ← → ← → B A. Old school.", icon: "🕹️", hidden: true },
+    { id: "gambler", title: "Compulsive Gambler", description: "Rolled the dice 7 times. Maybe take a break?", icon: "🎰", hidden: true },
+    { id: "gamertag", title: "Made You Look", description: "You found my gamertag: @Silimim.", icon: "🎮", hidden: true },
+    { id: "nightowl", title: "Burning the Midnight Oil", description: "Browsing in the dead of night. Go to bed!", icon: "🌙", hidden: true },
+    { id: "idle", title: "Analysis Paralysis", description: "Stared at the board for a while without moving.", icon: "😴", hidden: true },
+    { id: "meeplewhisperer", title: "Meeple Whisperer", description: "You poked the little meeple one too many times.", icon: "🫳", hidden: true },
 ];
 
 const STORAGE_KEY = "sb-achievements";
-const UNLOCKABLE = ACHIEVEMENTS.filter((a) => a.id !== "completionist").map((a) => a.id);
+/* Completionist tracks only the visible "main quest" — secret achievements are bonus. */
+const UNLOCKABLE = ACHIEVEMENTS.filter((a) => a.id !== "completionist" && !a.hidden).map(
+    (a) => a.id
+);
 
 type Ctx = {
     unlocked: Set<AchievementId>;

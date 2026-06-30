@@ -26,6 +26,7 @@ from "../assets/icons";
 export const player = {
     name: "Simone Baptiste",
     title: "Full-stack Developer & DevOps",
+    gamertag: "Silimim",
     location: "Italy",
     players: "1 developer",
     ages: "22+",

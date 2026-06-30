@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Die from "./Die";
 import { useAchievements } from "./Achievements";
@@ -9,12 +9,15 @@ const SECTIONS = ["components", "rulebook", "campaign", "expansions", "join"];
 const DiceNav = () => {
     const [value, setValue] = useState(6);
     const [rolling, setRolling] = useState(false);
+    const rollCount = useRef(0);
     const { unlock } = useAchievements();
 
     const roll = () => {
         if (rolling) return;
         setRolling(true);
         unlock("roller");
+        rollCount.current += 1;
+        if (rollCount.current >= 7) unlock("gambler");
 
         // flicker through faces while it tumbles
         let ticks = 0;

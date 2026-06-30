@@ -137,29 +137,34 @@ const JoinTable = () => {
                         </span>
                     </div>
                     <p className="mt-1 font-hand text-lg text-ink-soft">
-                        Explore the page to unlock them all.
+                        Explore the page to unlock them all — some are secret. 👀
                     </p>
 
                     <ul className="mt-4 space-y-2.5">
                         {ACHIEVEMENTS.map((a) => {
                             const got = unlocked.has(a.id);
+                            const masked = !got && a.hidden;
                             return (
                                 <li
                                     key={a.id}
                                     className={`flex items-center gap-3 rounded-lg border px-3 py-2 transition-colors ${
                                         got
                                             ? "border-gold/50 bg-cream"
+                                            : masked
+                                            ? "border-dashed border-ink/20 bg-parchment/40 opacity-70"
                                             : "border-ink/10 bg-parchment/60 opacity-60"
                                     }`}
                                 >
                                     <span className="grid h-9 w-9 shrink-0 place-items-center rounded-md bg-gold/15 text-lg">
-                                        {got ? a.icon : "🔒"}
+                                        {got ? a.icon : masked ? "❓" : "🔒"}
                                     </span>
                                     <div className="min-w-0">
                                         <p className="font-display text-sm font-bold leading-tight text-ink">
-                                            {a.title}
+                                            {got ? a.title : masked ? "Secret achievement" : a.title}
                                         </p>
-                                        <p className="truncate text-xs text-ink-soft">{a.description}</p>
+                                        <p className="truncate text-xs text-ink-soft">
+                                            {got ? a.description : masked ? "Keep poking around to reveal this one…" : a.description}
+                                        </p>
                                     </div>
                                 </li>
                             );
