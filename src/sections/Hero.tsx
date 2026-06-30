@@ -74,9 +74,6 @@ const Hero = () => {
                         <GameBoxStack />
                     </Suspense>
                 </div>
-                <p className="absolute bottom-2 left-1/2 -translate-x-1/2 font-hand text-lg text-ink-soft">
-                    drag your cursor — the table reacts ✋
-                </p>
             </div>
 
             {/* scroll cue */}
