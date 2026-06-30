@@ -19,6 +19,7 @@
     "@types/react-vertical-timeline-component": "^3.3.6",
     "@types/three": "^0.169.0",
     "eslint-plugin-react": "^7.37.2",
+    "framer-motion": "^11.18.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.27.0",

@@ -1,41 +1,28 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Landing from "./pages/Landing.tsx";
-import About from "./pages/About.tsx";
-import Projects from "./pages/Projects.tsx";
-import Contacts from "./pages/Contacts.tsx";
+import Home from "./pages/Home.tsx";
 import MyFit from "./pages/MyFit.tsx";
 import MyFitPrivacy from "./pages/MyFitPrivacy.tsx";
 import MyFitTerms from "./pages/MyFitTerms.tsx";
-import Footer from "./components/Footer.tsx";
+import { AchievementProvider } from "./components/game/Achievements";
+import MeepleCursor from "./components/game/MeepleCursor";
 
 function App() {
-
   return (
-    <main className='bg-slate-300/20 h-full'>
+    <AchievementProvider>
       <Router basename="/">
-        <Navbar/>
-        <Routes>
-          <Route path='/' element={<Landing />} />
-          <Route
-              path='/*'
-              element={
-                <>
-                  <Routes>
-                    <Route path='/about' element={<About />} />
-                    <Route path='/projects' element={<Projects />} />
-                    <Route path='/projects/myfit' element={<MyFit />} />
-                    <Route path='/projects/myfit/privacy' element={<MyFitPrivacy />} />
-                    <Route path='/projects/myfit/terms' element={<MyFitTerms />} />
-                    <Route path='/contacts' element={<Contacts />} />
-                  </Routes>
-                  <Footer />
-                </>
-              }
-          />
-        </Routes>
+        <main className="paper-bg grain min-h-screen overflow-x-hidden">
+          <Navbar />
+          <MeepleCursor />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/projects/myfit' element={<MyFit />} />
+            <Route path='/projects/myfit/privacy' element={<MyFitPrivacy />} />
+            <Route path='/projects/myfit/terms' element={<MyFitTerms />} />
+          </Routes>
+        </main>
       </Router>
-    </main>
+    </AchievementProvider>
   )
 }
 
