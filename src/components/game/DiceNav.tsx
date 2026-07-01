@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import Die from "./Die";
+import Dice from "./Dice.tsx";
 import { useAchievements } from "./Achievements";
 
 /* Floating die — click to "roll" and teleport to a random section. */
@@ -47,7 +47,7 @@ const DiceNav = () => {
                 transition={{ duration: 0.7, ease: "easeInOut" }}
                 className="block"
             >
-                <Die value={value} className="h-11 w-11" pipColor="#C24B4B" />
+                <Dice value={value} className="h-11 w-11" pipColor="#C24B4B" />
             </motion.span>
             <span className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-ink px-2 py-1 font-hand text-base text-cream opacity-0 transition-opacity group-hover:opacity-100">
                 Roll me!

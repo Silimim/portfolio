@@ -8,7 +8,7 @@ const PIP_LAYOUT: Record<number, [number, number][]> = {
     6: [[28, 26], [72, 26], [28, 50], [72, 50], [28, 74], [72, 74]],
 };
 
-const Die = ({
+const Dice = ({
     value,
     className = "",
     faceColor = "#FBF6E9",
@@ -49,4 +49,4 @@ const Die = ({
     );
 };
 
-export default Die;
+export default Dice;

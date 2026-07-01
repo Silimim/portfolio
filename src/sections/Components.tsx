@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { skills, skillCategoryOrder, type Skill } from "../constants/constants";
 import SectionHeading from "./SectionHeading";
-import Die from "../components/game/Die";
+import Dice from "../components/game/Dice.tsx";
 
 const grouped = skills.reduce((acc, s) => {
     (acc[s.type] = acc[s.type] || []).push(s);
@@ -26,7 +26,7 @@ const SkillToken = ({ skill, i }: { skill: Skill; i: number }) => (
             <p className="font-display font-bold text-ink">{skill.name}</p>
             <p className="text-xs text-ink-soft">{skill.type}</p>
             <div className="mt-2 flex items-center justify-center gap-2">
-                <Die value={skill.level} className="h-8 w-8" pipColor="#5C8A5A" />
+                <Dice value={skill.level} className="h-8 w-8" pipColor="#5C8A5A" />
                 <span className="font-hand text-xl text-board">{skill.level}/6</span>
             </div>
         </div>

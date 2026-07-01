@@ -363,7 +363,7 @@ function Scene() {
 
 const ChessGame = () => (
     <Canvas
-        camera={{ position: [0, 6.6, 7.4], fov: 42 }}
+        camera={{ position: [0, 6.6, 7.4], fov: 82 }}
         dpr={[1, 2]}
         gl={{ antialias: true, alpha: true }}
     >

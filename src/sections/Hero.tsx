@@ -27,8 +27,6 @@ const Hero = () => {
                 transition={{ duration: 0.6 }}
                 className="relative z-10"
             >
-                <p className="section-eyebrow">a tabletop portfolio · {player.players} · ages {player.ages}</p>
-
                 <h1 className="display-text mt-1 text-5xl leading-[0.95] sm:text-6xl lg:text-7xl">
                     {player.name}
                 </h1>
