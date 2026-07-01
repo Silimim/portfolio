@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import { player } from "../constants/constants";
 
-const GameBoxStack = lazy(() => import("../components/game/GameBoxStack"));
+const ChessGame = lazy(() => import("../components/game/ChessGame"));
 
 const MetaChip = ({ label, value }: { label: string; value: string }) => (
     <div className="flex flex-col items-center rounded-lg border border-ink/15 bg-cream px-4 py-2 shadow-cardboard">
@@ -67,11 +67,11 @@ const Hero = () => {
                     <Suspense
                         fallback={
                             <div className="grid h-full place-items-center font-hand text-2xl text-ink-soft">
-                                setting up the table…
+                                setting up the board…
                             </div>
                         }
                     >
-                        <GameBoxStack />
+                        <ChessGame />
                     </Suspense>
                 </div>
             </div>
