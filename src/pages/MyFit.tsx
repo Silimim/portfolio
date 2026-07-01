@@ -72,7 +72,7 @@ const MyFit = () => {
             <div className={"myfit-hero"}>
                 <div className={"myfit-hero-glow"}/>
                 <div className={"max-w-5xl mx-auto sm:px-16 px-8 !pt-[126px] pb-20 relative z-10"}>
-                    <Link to={"/projects"} className={"myfit-back"}>
+                    <Link to={"/#expansions"} className={"myfit-back"}>
                         <span>←</span> Back to projects
                     </Link>
 

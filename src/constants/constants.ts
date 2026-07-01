@@ -1,4 +1,3 @@
-
 import {
     contact,
     git,
@@ -23,99 +22,94 @@ import {
 }
 from "../assets/icons";
 
-export const skills = [
-    {
-        imageUrl: git,
-        name: "Git",
-        type: "Version Control",
-    },
-    {
-        imageUrl: github,
-        name: "GitHub",
-        type: "Version Control",
-    },
-    {
-        imageUrl: nodejs,
-        name: "Node.js",
-        type: "Backend",
-    },
-    {
-        imageUrl: mongodb,
-        name: "MongoDB",
-        type: "Database",
-    },
-    {
-        imageUrl: mysql,
-      name: "MySQL",
-      type:  "Database"
-    },
-    {
-        imageUrl: java,
-        name: "Java",
-        type: "Backend",
-    },
-    {
-        imageUrl: go,
-        name: "Go",
-        type: "Backend",
-    },
-    {
-        imageUrl: tailwindcss,
-        name: "Tailwind CSS",
-        type: "Frontend",
-    },
-    {
-        imageUrl: typescript,
-        name: "TypeScript",
-        type: "Frontend",
-    },
-    {
-        imageUrl: react,
-        name: "React",
-        type: "Frontend",
-    },
-    {
-        imageUrl: angular,
-        name: "Angular",
-        type: "Frontend",
-    },
-    {
-        imageUrl: godot,
-        name: "Godot",
-        type: "Game Development",
+/* ───────────────── The player ───────────────── */
+export const player = {
+    name: "Simone Baptiste",
+    title: "Full-stack Developer & DevOps",
+    gamertag: "Silimim",
+    location: "Italy",
+    players: "1 developer",
+    ages: "22+",
+    playtime: "∞ play time",
+    difficulty: "Co-op friendly",
+    tagline: "Building reliable software by day, designing little game worlds by night.",
+    blurb:
+        "I ship full-stack web apps and keep the infrastructure under them healthy — from Angular front-ends to Dockerized services and CI/CD pipelines. Off the clock I design games in Godot and Unity, which is where my love of board games and clean systems collide.",
+};
 
-    },
-    {
-        imageUrl: unity,
-        name: "Unity",
-        type: "Game Development",
-    },
-    {
-        imageUrl: flutter,
-        name: "Flutter",
-        type: "Frontend",
-    }
+/* ───────────────── Skills (level = dice pips, 1–6) ───────────────── */
+export type Skill = {
+    imageUrl: string;
+    name: string;
+    type: string;
+    level: number;
+};
+
+export const skills: Skill[] = [
+    { imageUrl: git, name: "Git", type: "Tooling", level: 6 },
+    { imageUrl: github, name: "GitHub", type: "Tooling", level: 6 },
+    { imageUrl: nodejs, name: "Node.js", type: "Backend", level: 5 },
+    { imageUrl: mongodb, name: "MongoDB", type: "Database", level: 4 },
+    { imageUrl: mysql, name: "MySQL", type: "Database", level: 5 },
+    { imageUrl: java, name: "Java", type: "Backend", level: 5 },
+    { imageUrl: go, name: "Go", type: "Backend", level: 5 },
+    { imageUrl: tailwindcss, name: "Tailwind CSS", type: "Frontend", level: 6 },
+    { imageUrl: typescript, name: "TypeScript", type: "Frontend", level: 6 },
+    { imageUrl: react, name: "React", type: "Frontend", level: 5 },
+    { imageUrl: angular, name: "Angular", type: "Frontend", level: 6 },
+    { imageUrl: flutter, name: "Flutter", type: "Frontend", level: 4 },
+    { imageUrl: godot, name: "Godot", type: "Game Dev", level: 5 },
+    { imageUrl: unity, name: "Unity", type: "Game Dev", level: 4 },
 ];
 
+/* category display order on the "components" manifest */
+export const skillCategoryOrder = [
+    "Frontend",
+    "Backend",
+    "Database",
+    "Game Dev",
+    "Tooling",
+];
+
+/* ───────────────── Rulebook (about, written as game instructions) ───────────────── */
+export const rulebook = {
+    objective:
+        "Turn ideas into dependable, well-crafted software — and have fun doing it.",
+    setup: [
+        "Based in Italy, playing the developer class since 2022.",
+        "Started as a full-stack web developer, leveled up into DevOps.",
+        "Equally at home writing application code and tending the servers it runs on.",
+    ],
+    howToPlay: [
+        "Design and build full-stack web apps (Angular, React, Node, Go, Java).",
+        "Containerize with Docker & Docker Compose; automate with CI/CD pipelines.",
+        "Harden, monitor and scale Linux infrastructure in production.",
+        "Prototype games in Godot and Unity for the joy of systems and play.",
+    ],
+};
+
+/* ───────────────── Campaign log (experience) ───────────────── */
 export const experiences = [
     {
-        title: "Full stack Developer",
+        title: "Full-stack Developer",
         company_name: "Cortis Lentini",
         icon: cortis,
         iconBg: "#ceffba",
         date: "Mar 2022 - 2025",
+        level: 1,
         points: [
             "Developing and maintaining web applications using Angular and other related technologies.",
             "Collaborating with cross-functional teams to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility."
+            "Implementing responsive design and ensuring cross-browser compatibility.",
         ],
     },
     {
-        title: "Full stack DevOps",
+        title: "Full-stack DevOps",
         company_name: "Cortis Lentini",
         icon: cortis,
         iconBg: "#ceffba",
         date: "2025 - Present",
+        level: 2,
         points: [
             "Managing and maintaining Linux servers, including provisioning, configuration, security hardening, and performance monitoring.",
             "Containerizing applications using Docker and orchestrating multi-container environments with Docker Compose for consistent development and production deployments.",
@@ -127,43 +121,76 @@ export const experiences = [
     },
 ];
 
+/* ───────────────── Social links ───────────────── */
 export const socialLinks = [
+    { name: "Contact", iconUrl: contact, link: "#join" },
+    { name: "GitHub", iconUrl: github, link: "https://github.com/Silimim" },
     {
-        name: 'Contact',
-        iconUrl: contact,
-        link: '/contacts',
-    },
-    {
-        name: 'GitHub',
-        iconUrl: github,
-        link: 'https://github.com/Silimim',
-    },
-    {
-        name: 'LinkedIn',
+        name: "LinkedIn",
         iconUrl: linkedin,
-        link: 'https://www.linkedin.com/in/simone-baptiste/',
-    }
+        link: "https://www.linkedin.com/in/simone-baptiste/",
+    },
 ];
 
-export const projects = [
+/* ───────────────── Expansions (projects) ─────────────────
+   color: box-cover theme color
+   stats: shown on the flipped "back of the card"
+*/
+export type Project = {
+    id: string;
+    name: string;
+    iconUrl: string;
+    color: string;
+    tagline: string;
+    description: string;
+    category: string;
+    year: string;
+    role: string;
+    tech: string[];
+    link?: string;
+    internal?: boolean;
+};
+
+export const projects: Project[] = [
     {
+        id: "paleoscovery",
+        name: "Paleoscovery",
         iconUrl: paleoscovery,
-        theme: 'btn-back-black',
-        name: 'Paleoscovery',
-        description: 'Developed and designed a unity platformer puzzle 2D game'
+        color: "#3F6B3E",
+        tagline: "A 2D puzzle-platformer",
+        description:
+            "Designed and developed a Unity 2D puzzle platformer where players explore Pietro Paleocapa's adventures",
+        category: "Game · Unity",
+        year: "2018",
+        role: "Designer & Developer",
+        tech: ["Unity", "C#", "Game Design", "2D"],
     },
     {
+        id: "myfit",
+        name: "MyFit",
         iconUrl: myfit,
-        theme: 'btn-back-green',
-        name: 'MyFit',
-        description: 'Developed a fitness application to track workouts and progress, built with Flutter',
-        link: '/projects/myfit',
+        color: "#3E6B8C",
+        tagline: "Track every workout & PR",
+        description:
+            "A cross-platform fitness app to plan workouts and track progress over time, built with Flutter.",
+        category: "Mobile · Flutter",
+        year: "2026",
+        role: "Solo Developer",
+        tech: ["Flutter", "Dart", "Mobile", "UX"],
+        link: "/projects/myfit",
         internal: true,
     },
     {
+        id: "dumbs",
+        name: "Dumbs",
         iconUrl: dumb,
-        theme: 'btn-back-orange',
-        name: 'Dumbs',
-        description: 'Developed and designed a multiplayer 2D platformer shooter game using Godot Engine.',
-    }
+        color: "#C24B4B",
+        tagline: "Couch-chaos multiplayer shooter",
+        description:
+            "A multiplayer 2D platformer shooter built in the Godot Engine — fast rounds, friends, and friendly fire.",
+        category: "Game · Godot",
+        year: "2025",
+        role: "Designer & Developer",
+        tech: ["Godot", "GDScript", "Multiplayer", "2D"],
+    },
 ];
